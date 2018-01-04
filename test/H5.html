@@ -25,17 +25,62 @@
 
 <script>
 
-
-
+$(function () {
     var h5 = new H5();
 
-    h5.addPage('face','1111111111');
-    h5.addPage('desc','22222222222');
-    h5.addPage('desc','333333333');
+    h5
+        .addPage('face','首页')
+        .addComponent('logo',{
+            text: 'logo',
+            width: 400,
+            height: 100,
+            css: {
+                backgroundColor: 'red',
+                top: 200,
+                opacity:0
+            },
+            center: true,
+            animateIn: {opacity:1},
+            animateOut: {opacity:0}
+        })
+        .addComponent('slogan',{
+            text: 'slogan',
+            width: 400,
+            height: 100,
+            css: {
+                backgroundColor: 'red',
+                top: 300
+            },
+            center: true
+        })
+        .addPage('desc','核心理念')
+        .addComponent('caption',{
+            text: '核心理念',
+            width: 400,
+            height: 100,
+            css: {
+                backgroundColor: 'red',
+                top: 300
+            },
+            center: true
+        })
+        .addPage('desc','课程分布方向')
+        .addComponent('caption',{
+            text: '课程分布方向',
+            width: 400,
+            height: 100,
+            css: {
+                backgroundColor: 'red',
+                top: 300
+            },
+            center: true
+        })
+        .loader();
+})
 
-    $('.h5').fullpage({
-        'sectionsColor': ['#254875','#00ff00','#254587']
-    });
+
+
+
 </script>
 </body>
 </html>

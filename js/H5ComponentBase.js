@@ -31,12 +31,12 @@ var H5ComponentBase = function (name,cfg) {//参数 name 为calss后缀 cfg为�
     }
     component.on('onLoad',function(){
         component.addClass(cls+'_load').removeClass(cls+'_leave');
-        cfg.animateIn && component.animate( cfg.animateIn );
+        cfg.animateIn && component.animate(cfg.animateIn,1000);
         return false;
     });
     component.on('onLeave',function(){
         component.addClass(cls+'_leave').removeClass(cls+'_load');
-        cfg.animateOut && component.animate( cfg.animateOut );
+        cfg.animateOut && component.animate(cfg.animateOut,1000);
         return false;
     });
 

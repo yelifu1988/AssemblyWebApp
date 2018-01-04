@@ -2,7 +2,7 @@
 
 var H5 = function () {
     this.id = ('h5_'+Math.random()).replace('.','_');
-    this.el = $('<div class="h5" id="'+ this.id +'"></div>');
+    this.el = $('<div class="h5" id="'+ this.id +'"></div>').hide();
     this.page = [];
     $('body').append(this.el);
 
@@ -22,8 +22,49 @@ var H5 = function () {
             page.text(text);
         }
         this.el.append(page);
-        this.page.push(page)
+        this.page.push(page);
+
+        return this;
     };
+
+    /*新增一个组件*/
+    this.addComponent = function (name,cfg) {
+        var cfg = cfg || {};
+        cfg = $.extend({
+            type: 'base'
+        },cfg);
+
+        var component;  //定义一个变量 存贮 组件元素
+        var page = this.page.slice(-1)[0];//拿到最后一页
+
+        switch (cfg.type){
+            case 'base':
+                component = new H5ComponentBase(name,cfg);
+            break;
+
+            default:
+        }
+
+        page.append(component);
+        return this;
+    };
+
+    /*H5对象初始化组件*/
+    this.loader = function () {
+        this.el.fullpage({
+            onLeave:function(index,nextIndex,direction){
+                // $(this).find('.h5_component').trigger('onLeave') 坑！
+                $('.h5').find('.h5_component').eq(index-1).trigger('onLeave')
+            },
+            afterLoad:function(anchorLink,index){
+                // $(this).find('.h5_component').trigger('onLoad')
+                $('.h5').find('.h5_component').eq(index-1).trigger('onLoad')
+            }
+        });
+        this.page[0].find('.h5_component').trigger('onLoad');
+        this.el.show();
+    };
+
 
     return this
 };
