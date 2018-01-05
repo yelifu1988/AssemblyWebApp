@@ -53,12 +53,11 @@ var H5 = function () {
     this.loader = function () {
         this.el.fullpage({
             onLeave:function(index,nextIndex,direction){
-                // $(this).find('.h5_component').trigger('onLeave') 坑！
-                $('.h5').find('.h5_component').eq(index-1).trigger('onLeave')
+                console.log($(this));
+                $(this).find('.h5_component').trigger('onLeave')// 坑！插件一定重官网下啊！！ 老版fullpage用$(this)取不到当前页！！！
             },
             afterLoad:function(anchorLink,index){
-                // $(this).find('.h5_component').trigger('onLoad')
-                $('.h5').find('.h5_component').eq(index-1).trigger('onLoad')
+                $(this).find('.h5_component').trigger('onLoad')
             }
         });
         this.page[0].find('.h5_component').trigger('onLoad');
