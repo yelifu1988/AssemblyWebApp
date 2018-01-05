@@ -63,8 +63,11 @@ $(function () {
             height: 100,
             css: {
                 backgroundColor: 'red',
-                top: 300
+                top: 0,
+                opacity:0
             },
+            animateIn: {opacity:1,top:200},
+            animateOut: {opacity:0,top:0},
             center: true
         })
         .addPage('desc','课程分布方向')
@@ -74,8 +77,11 @@ $(function () {
             height: 100,
             css: {
                 backgroundColor: 'red',
-                top: 300
+                top: 0,
+                opacity:0
             },
+            animateIn: {opacity:1,top:200},
+            animateOut: {opacity:0,top:0},
             center: true
         })
         .loader();
