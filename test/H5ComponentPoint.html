@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>H5ComponentPoint</title>
+    <script src="../js/lib/jquery-2.2.4.min.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <script src="../js/lib/jquery.fullPage.min.js"></script>
+
+    <script src="../js/H5ComponentBase.js"></script>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+
+    <script src="../js/H5ComponentPoint.js"></script>
+    <link rel="stylesheet" href="../css/H5ComponentPoint.css">
+
+
+</head>
+<body>
+
+    <div style="height: 100%" class="iphone">
+
+    </div>
+    <script>
+        //测试
+        var cfg = {
+            type: 'base',
+            bg: '../img/meinv.jpg',
+            width : 514,
+            height : 306,
+            css:{
+                top:110,
+                opacity:1,
+            },
+
+            center:true
+        };
+
+        var h5 = new H5ComponentPoint('myName',cfg);
+        $('.iphone').append(h5);
+
+    </script>
+</body>
+</html>
