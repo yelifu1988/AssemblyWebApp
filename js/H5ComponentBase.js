@@ -42,4 +42,5 @@ var H5ComponentBase = function (name,cfg) {//参数 name 为calss后缀 cfg为�
 
     return component;
 
+
 };

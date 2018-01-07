@@ -32,4 +32,5 @@ var H5ComponentPoint = function (name,cfg) {
     });
 
     return component
+
 };
