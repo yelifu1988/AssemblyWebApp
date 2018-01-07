@@ -6,7 +6,7 @@ var H5ComponentBase = function (name,cfg) {//参数 name 为calss后缀 cfg为�
     //设置随机唯一id
     var id = ('h5_c'+Math.random()).replace('.','_');//把小数点用 _ 代替
     //把当前组件类型添加到样式中进行标记
-    var cls = name+'h5_component_'+cfg.type;
+    var cls = 'h5_component_'+cfg.type;
     //设置组件结构
     var component = $('<div class="h5_component '+ cls +' h5_component_name_'+name+' " id=" '+id+' "></div>');
 

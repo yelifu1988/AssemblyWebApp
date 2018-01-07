@@ -24,21 +24,37 @@
     <script>
         //测试
         var cfg = {
-            type: 'base',
-            bg: '../img/meinv.jpg',
-            width : 514,
-            height : 306,
+            type: 'point',
+            width : 300,
+            height : 300,
+            data:[
+                ['A项',.4,'green'],
+                ['B项',.2,'yellow',0,'-60%'],// 第四项 x轴 第五项y轴
+                ['C项',.2,'red',0,'120%']
+            ],
             css:{
-                top:110,
-                opacity:1,
+                bottom:0,
+                opacity:0
             },
-
+            animateIn:{
+                bottom:'40%',
+                opacity:1
+            },
+            animateOut:{
+                bottom:0,
+                opacity:0
+            },
             center:true
         };
 
         var h5 = new H5ComponentPoint('myName',cfg);
         $('.iphone').append(h5);
 
+        var leave = true;
+        $('body').click(function () {
+            leave = !leave;
+            $('.h5_component').trigger(leave ? 'onLeave':'onLoad')
+        });
     </script>
 </body>
 </html>
