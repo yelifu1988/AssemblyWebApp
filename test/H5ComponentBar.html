@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>H5ComponentBar</title>
+    <script src="../js/lib/jquery-2.2.4.min.js"></script>
+    <script src="../js/lib/jquery-ui.min.js"></script>
+    <script src="../js/lib/jquery.fullPage.min.js"></script>
+
+    <script src="../js/H5ComponentBase.js"></script>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+
+    <script src="../js/H5Componentbar.js"></script>
+    <link rel="stylesheet" href="../css/H5Componentbar.css">
+
+
+</head>
+<body>
+
+<div style="height: 100%" class="iphone">
+
+</div>
+<script>
+    //测试
+    var cfg = {
+        type: 'bar',
+        width : 400,
+        height : 600,
+        data:[
+            ['Javascript',.4,'#ff7676'],
+            ['HTML/CSS',.1],
+            ['CSS3',.3],
+            ['HTML5',.35],
+            ['jQuery',.3],
+            ['Bootstrap',.08],
+            ['AngularJs',.09]
+        ],
+        css:{
+            top:200,
+            opacity:0
+        },
+        animateIn:{
+            top:200,
+            opacity:1
+        },
+        animateOut:{
+            top:100,
+            opacity:0
+        },
+        center:true
+    };
+
+    var h5 = new H5ComponentBar('myBarComponent',cfg);
+    $('.iphone').append(h5);
+
+    var leave = true;
+    $('body').click(function () {
+        leave = !leave;
+        $('.h5_component').trigger(leave ? 'onLeave':'onLoad')
+    });
+
+</script>
+</body>
+</html>
